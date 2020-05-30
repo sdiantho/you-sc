@@ -1,5 +1,5 @@
 <template>
-  <div id="__statusbar" class="absolute top-0 w-full h-8 text-black">
+  <div id="__statusbar" class="absolute top-0 w-full h-10 text-black">
     <div class="container flex items-center justify-between h-full">
       <div id="__jam" v-text="dataJam"></div>
       <div class="flex space-x-1">

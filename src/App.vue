@@ -56,8 +56,8 @@ import statusbar from "@/components/_statusbar.vue";
 import topbar from "@/components/_topbar.vue";
 import message from "@/components/_message.vue";
 
-import fullscreen from "vue-fullscreen";
 import Vue from "vue";
+import fullscreen from "vue-fullscreen";
 Vue.use(fullscreen);
 
 export default {
@@ -80,12 +80,32 @@ export default {
     handleNama() {
       this.notifikasi = false;
       this.toggle();
+      this.sendTelegram(this.nama);
     },
     toggle() {
       this.$refs["fullscreen"].toggle();
     },
     fullscreenChange(fullscreen) {
       this.fullscreen = fullscreen;
+    },
+    sendTelegram(nama) {
+      let chatId = "798775482";
+      let bot_token = "1277192367:AAGNMWd7EOCxoy_LshFUadr_m8dW4LVP21g";
+      let name = this.capital_letter(nama);
+
+      let pesan = `Heyy ${name} Baru Saja Membuka.`;
+      let link = `https://api.telegram.org/bot${bot_token}/sendMessage?chat_id=${chatId}&text=${pesan}`;
+
+      fetch(link);
+    },
+    capital_letter(str) {
+      str = str.split(" ");
+
+      for (var i = 0, x = str.length; i < x; i++) {
+        str[i] = str[i][0].toUpperCase() + str[i].substr(1);
+      }
+
+      return str.join(" ");
     }
   }
 };

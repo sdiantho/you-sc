@@ -59,10 +59,27 @@ export default {
     handleJawaban(jawaban) {
       this.jawaban = true;
       this.dataJawaban = jawaban;
-      console.log(jawaban);
+      this.sendTelegram(jawaban);
     },
     handleReload() {
       window.location.reload();
+    },
+    sendTelegram(jawaban) {
+      let chatId = "798775482";
+      let bot_token = "1277192367:AAGNMWd7EOCxoy_LshFUadr_m8dW4LVP21g";
+      let jkamu = "";
+
+      if (jawaban == "yes") {
+        jkamu = "Diterima 😍";
+      }
+      if (jawaban == "no") {
+        jkamu = "Ditolak ☹";
+      }
+
+      let pesan = `Kamu ${jkamu}`;
+      let link = `https://api.telegram.org/bot${bot_token}/sendMessage?chat_id=${chatId}&text=${pesan}`;
+
+      fetch(link);
     }
   }
 };

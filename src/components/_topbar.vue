@@ -1,6 +1,9 @@
 <template>
-  <div id="__topbar" class="absolute top-0 flex items-end w-full">
-    <div class="container flex items-center justify-between pb-3">
+  <div
+    id="__topbar"
+    class=" absolute top-0 flex items-end w-full border-b border-gray-800 border-opacity-25"
+  >
+    <div class="container flex items-center justify-between pb-2">
       <div id="__back">
         <svg
           width="13"
@@ -58,7 +61,6 @@ export default {
   #__profile {
     #__name {
       font-size: 14px;
-      font-family: "SF Text";
       font-weight: 400;
     }
   }

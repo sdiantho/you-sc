@@ -1,9 +1,10 @@
 <template>
-  <div class="flex justify-center w-screen h-screen bg-gray-100 select-none">
+  <div class="flex justify-center w-screen h-screen bg-gray-100">
     <div class="relative w-full h-screen max-w-sm bg-white shadow-lg">
-      <statusbar class="z-50" />
-      <topbar />
-      <div id="__bottom" class="absolute bottom-0 w-full">
+      <statusbar class="z-50 select-none" />
+      <topbar class="select-none" />
+      <message :nama="nama" v-if="!notifikasi" />
+      <div id="__bottom" class="absolute bottom-0 w-full select-none">
         <img src="@/assets/img/bottom.png" class="bg-center" />
       </div>
 
@@ -11,7 +12,7 @@
       <div
         v-if="notifikasi"
         id="__notifikasi"
-        class="absolute w-full h-full bg-black bg-opacity-75"
+        class="absolute top-0 bottom-0 w-full h-full bg-black bg-opacity-75 select-none"
       >
         <div class="container flex items-center justify-center h-full">
           <div
@@ -28,6 +29,7 @@
               placeholder="Nama panggilan"
               autofocus
               v-model="nama"
+              @keyup.enter="handleNama"
             />
             <br />
             <button
@@ -48,12 +50,14 @@
 <script>
 import statusbar from "@/components/_statusbar.vue";
 import topbar from "@/components/_topbar.vue";
+import message from "@/components/_message.vue";
 
 export default {
   name: "app",
   components: {
     statusbar,
-    topbar
+    topbar,
+    message
   },
 
   data() {
@@ -66,7 +70,6 @@ export default {
   methods: {
     handleNama() {
       this.notifikasi = false;
-      console.log(this.nama);
     }
   }
 };
@@ -81,7 +84,6 @@ export default {
     backdrop-filter: blur(54.37px);
     background-color: rgba($color: #f8f8f8, $alpha: 0.82);
     border-radius: 14px;
-    font-family: "SF Text";
 
     h2 {
       letter-spacing: -0.0241176em;

@@ -75,11 +75,9 @@ export default {
       dataJam: ""
     };
   },
-
   created() {
     setInterval(this.getTime, 1000);
   },
-
   methods: {
     getTime() {
       this.dataJam = moment().format("hh:mm");
@@ -93,7 +91,6 @@ export default {
   font-size: 15px;
   letter-spacing: -0.02em;
   #__jam {
-    font-family: "SF Text";
     font-weight: 600;
   }
 }

@@ -88,6 +88,7 @@ export default {
 <style lang="scss" scoped>
 #__jawaban {
   margin-top: -120px;
+  -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
 
   video {

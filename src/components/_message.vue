@@ -62,10 +62,7 @@ export default {
     this.dataRead = moment()
       .add(-3, "minutes")
       .format("hh:mm");
-    if (moment().format("h") > 5) this.dataUcapan = "Pagi";
-    if (moment().format("h") > 12) this.dataUcapan = "Siang";
-    if (moment().format("h") > 15) this.dataUcapan = "Sore";
-    if (moment().format("h") > 19) this.dataUcapan = "Malem";
+    this.dataUcapan = moment().format("A");
   },
   methods: {}
 };

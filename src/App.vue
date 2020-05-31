@@ -113,9 +113,11 @@ export default {
 
 <style lang="scss" scoped>
 #__notifikasi {
+  -webkit-backdrop-filter: blur(2.5px);
   backdrop-filter: blur(2.5px);
 
   #__box {
+    -webkit-backdrop-filter: blur(54.37px);
     backdrop-filter: blur(54.37px);
     background-color: rgba($color: #f8f8f8, $alpha: 0.82);
     border-radius: 14px;

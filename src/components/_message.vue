@@ -3,7 +3,7 @@
     <div class="container flex flex-col h-full pb-1 space-y-1 overflow-y-auto">
       <div
         id="__date"
-        class="flex justify-center mt-2 mb-2 space-x-1 text-xs text-gray-700"
+        class="flex justify-center mt-2 mb-2 space-x-1 text-xs text-gray-600"
       >
         <span class="font-semibold">{{ dataHari }}</span>
         <span class="font-light">{{ dataJam }}</span>
@@ -11,7 +11,7 @@
       <bubble
         class="capitalize"
         arah="right"
-        :pesan="dataUcapan + ' ' + nama + '.'"
+        :pesan="dataUcapan + ' ' + nama + ' 😊.'"
       />
       <bubble arah="right" pesan="Aku mau ngomong nih sama kamu.." />
       <br />
@@ -21,19 +21,24 @@
       <bubble arah="right" pesan="Kita kan udah lama nih kenalnya" />
       <bubble arah="right" pesan="Aku udah tau kamu, kamu juga udah tau aku" />
       <bubble arah="right" pesan="Kamu mau gak jadi pacar aku?" />
+      <br />
+      <jawaban class="z-50" />
+      <br />
     </div>
   </div>
 </template>
 
 <script>
 import bubble from "@/components/message/_bubble.vue";
+import jawaban from "@/components/message/_jawaban.vue";
 import moment from "moment";
 moment.locale("id");
 
 export default {
   name: "component.message",
   components: {
-    bubble
+    bubble,
+    jawaban
   },
   props: {
     nama: {
@@ -52,10 +57,10 @@ export default {
   created() {
     this.dataHari = moment().format("dddd");
     this.dataJam = moment()
-      .add(-10, "minutes")
+      .add(-5, "minutes")
       .format("hh:mm");
     this.dataRead = moment()
-      .add(-8, "minutes")
+      .add(-3, "minutes")
       .format("hh:mm");
     if (moment().format("h") > 5) this.dataUcapan = "Pagi";
     if (moment().format("h") > 12) this.dataUcapan = "Siang";

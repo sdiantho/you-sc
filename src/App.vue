@@ -1,8 +1,8 @@
 <template>
   <div class="flex justify-center w-screen h-screen bg-gray-100">
     <div class="relative w-full h-screen max-w-sm bg-white shadow-lg">
-      <statusbar class="z-50 select-none" />
-      <topbar class="select-none" />
+      <statusbar class="z-30 select-none" />
+      <topbar class="z-20 select-none" />
       <message :nama="nama" v-if="!notifikasi" />
       <div id="__bottom" class="absolute bottom-0 w-full select-none">
         <img src="@/assets/img/bottom.png" class="bg-center" />
@@ -12,7 +12,7 @@
       <div
         v-if="notifikasi"
         id="__notifikasi"
-        class="absolute top-0 bottom-0 w-full h-full bg-black bg-opacity-75 select-none"
+        class="absolute top-0 left-0 z-40 w-full h-full bg-black bg-opacity-75 select-none"
       >
         <div class="container flex items-center justify-center h-full">
           <div
@@ -78,7 +78,6 @@ export default {
 <style lang="scss" scoped>
 #__notifikasi {
   backdrop-filter: blur(2.5px);
-  z-index: 999;
 
   #__box {
     backdrop-filter: blur(54.37px);
